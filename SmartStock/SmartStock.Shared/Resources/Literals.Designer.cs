@@ -70,11 +70,74 @@ namespace SmartStock.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Return.
+        /// </summary>
+        public static string _return {
+            get {
+                return ResourceManager.GetString("return", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About.
         /// </summary>
         public static string about {
             get {
                 return ResourceManager.GetString("about", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string cancel {
+            get {
+                return ResourceManager.GetString("cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Category.
+        /// </summary>
+        public static string category {
+            get {
+                return ResourceManager.GetString("category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirmation.
+        /// </summary>
+        public static string confirmation {
+            get {
+                return ResourceManager.GetString("confirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create.
+        /// </summary>
+        public static string create {
+            get {
+                return ResourceManager.GetString("create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Created At.
+        /// </summary>
+        public static string created_at {
+            get {
+                return ResourceManager.GetString("created_at", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current Stock.
+        /// </summary>
+        public static string current_stock {
+            get {
+                return ResourceManager.GetString("current_stock", resourceCulture);
             }
         }
         
@@ -88,11 +151,38 @@ namespace SmartStock.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure to delete the {0}: {1}?.
+        /// </summary>
+        public static string delete_confirm {
+            get {
+                return ResourceManager.GetString("delete_confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit.
         /// </summary>
         public static string edit {
             get {
                 return ResourceManager.GetString("edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string error {
+            get {
+                return ResourceManager.GetString("error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expiration Date .
+        /// </summary>
+        public static string expiration_date {
+            get {
+                return ResourceManager.GetString("expiration_date", resourceCulture);
             }
         }
         
@@ -115,11 +205,101 @@ namespace SmartStock.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Do you want to leave the page and lose your changes?.
+        /// </summary>
+        public static string leave_and_lose_changes {
+            get {
+                return ResourceManager.GetString("leave_and_lose_changes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimum Stock.
+        /// </summary>
+        public static string minimum_stock {
+            get {
+                return ResourceManager.GetString("minimum_stock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No records to show....
         /// </summary>
         public static string no_records {
             get {
                 return ResourceManager.GetString("no_records", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select category .
+        /// </summary>
+        public static string ph_category {
+            get {
+                return ResourceManager.GetString("ph_category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select creation date.
+        /// </summary>
+        public static string ph_created_at {
+            get {
+                return ResourceManager.GetString("ph_created_at", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter current stock .
+        /// </summary>
+        public static string ph_current_stock {
+            get {
+                return ResourceManager.GetString("ph_current_stock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select expiration date.
+        /// </summary>
+        public static string ph_expiration_date {
+            get {
+                return ResourceManager.GetString("ph_expiration_date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter minimum stock .
+        /// </summary>
+        public static string ph_minimum_stock {
+            get {
+                return ResourceManager.GetString("ph_minimum_stock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter product code.
+        /// </summary>
+        public static string ph_product_code {
+            get {
+                return ResourceManager.GetString("ph_product_code", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter product name.
+        /// </summary>
+        public static string ph_product_name {
+            get {
+                return ResourceManager.GetString("ph_product_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter unit price.
+        /// </summary>
+        public static string ph_unit_price {
+            get {
+                return ResourceManager.GetString("ph_unit_price", resourceCulture);
             }
         }
         
@@ -133,11 +313,65 @@ namespace SmartStock.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Product Code.
+        /// </summary>
+        public static string product_code {
+            get {
+                return ResourceManager.GetString("product_code", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product Name.
+        /// </summary>
+        public static string product_name {
+            get {
+                return ResourceManager.GetString("product_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Products.
         /// </summary>
         public static string products {
             get {
                 return ResourceManager.GetString("products", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Record created successfully..
+        /// </summary>
+        public static string record_created_ok {
+            get {
+                return ResourceManager.GetString("record_created_ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Record deleted successfully..
+        /// </summary>
+        public static string record_deleted_ok {
+            get {
+                return ResourceManager.GetString("record_deleted_ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Record saved successfully..
+        /// </summary>
+        public static string record_saved_ok {
+            get {
+                return ResourceManager.GetString("record_saved_ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save Changes.
+        /// </summary>
+        public static string save_changes {
+            get {
+                return ResourceManager.GetString("save_changes", resourceCulture);
             }
         }
         
@@ -156,6 +390,24 @@ namespace SmartStock.Shared.Resources {
         public static string title {
             get {
                 return ResourceManager.GetString("title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unit Price.
+        /// </summary>
+        public static string unit_price {
+            get {
+                return ResourceManager.GetString("unit_price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        public static string yes {
+            get {
+                return ResourceManager.GetString("yes", resourceCulture);
             }
         }
     }

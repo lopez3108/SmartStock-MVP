@@ -1,0 +1,7 @@
+﻿@page "/products/create"
+
+<h3> @Localizer["create"] @Localizer["product"]</h3>
+
+<ProductForm @ref="productForm" Product="product" OnValidSubmit="CreateAsync" ReturnAction="Return" />
+
+

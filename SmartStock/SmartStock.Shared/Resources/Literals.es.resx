@@ -130,4 +130,88 @@
   <data name="new" xml:space="preserve">
     <value>Nuevo</value>
   </data>
+  <data name="leave_and_lose_changes" xml:space="preserve">
+    <value>¿Deseas abandonar la página y perder los cambios?</value>
+  </data>
+  <data name="save_changes" xml:space="preserve">
+    <value>Guardar Cambios</value>
+  </data>
+  <data name="return" xml:space="preserve">
+    <value>Regresar</value>
+  </data>
+  <data name="create" xml:space="preserve">
+    <value>Crear</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="record_saved_ok" xml:space="preserve">
+    <value>Registro guardado con éxito.</value>
+  </data>
+  <data name="error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="delete_confirm" xml:space="preserve">
+    <value>¿Está seguro de borrar el {0}: {1}?</value>
+  </data>
+  <data name="record_deleted_ok" xml:space="preserve">
+    <value>Registro borrado con éxito.</value>
+  </data>
+  <data name="yes" xml:space="preserve">
+    <value>Si</value>
+  </data>
+  <data name="confirmation" xml:space="preserve">
+    <value>Confirmación</value>
+  </data>
+  <data name="record_created_ok" xml:space="preserve">
+    <value>Registro creado con éxito.</value>
+  </data>
+  <data name="product_code" xml:space="preserve">
+    <value>Código de producto</value>
+  </data>
+  <data name="product_name" xml:space="preserve">
+    <value>Nombre del producto</value>
+  </data>
+  <data name="category" xml:space="preserve">
+    <value>Categoría</value>
+  </data>
+  <data name="unit_price" xml:space="preserve">
+    <value>Precio unitario</value>
+  </data>
+  <data name="current_stock" xml:space="preserve">
+    <value>Stock actual</value>
+  </data>
+  <data name="minimum_stock" xml:space="preserve">
+    <value>Stock mínimo</value>
+  </data>
+  <data name="expiration_date" xml:space="preserve">
+    <value>Fecha de vencimiento</value>
+  </data>
+  <data name="created_at" xml:space="preserve">
+    <value>Fecha de creación</value>
+  </data>
+  <data name="ph_product_code" xml:space="preserve">
+    <value>Ingrese el código de producto</value>
+  </data>
+  <data name="ph_product_name" xml:space="preserve">
+    <value>Ingrese el nombre del producto</value>
+  </data>
+  <data name="ph_category" xml:space="preserve">
+    <value>Seleccione la categoría</value>
+  </data>
+  <data name="ph_unit_price" xml:space="preserve">
+    <value>Ingrese el precio unitario</value>
+  </data>
+  <data name="ph_current_stock" xml:space="preserve">
+    <value>Ingrese el stock actual</value>
+  </data>
+  <data name="ph_minimum_stock" xml:space="preserve">
+    <value>Ingrese el stock mínimo</value>
+  </data>
+  <data name="ph_expiration_date" xml:space="preserve">
+    <value>Seleccione la fecha de vencimiento</value>
+  </data>
+  <data name="ph_created_at" xml:space="preserve">
+    <value>Seleccione la fecha de creación</value>
+  </data>
 </root>

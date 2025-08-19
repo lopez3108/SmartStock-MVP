@@ -130,4 +130,88 @@
   <data name="new" xml:space="preserve">
     <value>New </value>
   </data>
+  <data name="leave_and_lose_changes" xml:space="preserve">
+    <value>Do you want to leave the page and lose your changes?</value>
+  </data>
+  <data name="save_changes" xml:space="preserve">
+    <value>Save Changes</value>
+  </data>
+  <data name="return" xml:space="preserve">
+    <value>Return</value>
+  </data>
+  <data name="create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="record_saved_ok" xml:space="preserve">
+    <value>Record saved successfully.</value>
+  </data>
+  <data name="error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="delete_confirm" xml:space="preserve">
+    <value>Are you sure to delete the {0}: {1}?</value>
+  </data>
+  <data name="record_deleted_ok" xml:space="preserve">
+    <value>Record deleted successfully.</value>
+  </data>
+  <data name="yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="confirmation" xml:space="preserve">
+    <value>Confirmation</value>
+  </data>
+  <data name="record_created_ok" xml:space="preserve">
+    <value>Record created successfully.</value>
+  </data>
+  <data name="product_code" xml:space="preserve">
+    <value>Product Code</value>
+  </data>
+  <data name="product_name" xml:space="preserve">
+    <value>Product Name</value>
+  </data>
+  <data name="category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="unit_price" xml:space="preserve">
+    <value>Unit Price</value>
+  </data>
+  <data name="current_stock" xml:space="preserve">
+    <value>Current Stock</value>
+  </data>
+  <data name="minimum_stock" xml:space="preserve">
+    <value>Minimum Stock</value>
+  </data>
+  <data name="expiration_date" xml:space="preserve">
+    <value>Expiration Date </value>
+  </data>
+  <data name="created_at" xml:space="preserve">
+    <value>Created At</value>
+  </data>
+  <data name="ph_product_code" xml:space="preserve">
+    <value>Enter product code</value>
+  </data>
+  <data name="ph_product_name" xml:space="preserve">
+    <value>Enter product name</value>
+  </data>
+  <data name="ph_category" xml:space="preserve">
+    <value>Select category </value>
+  </data>
+  <data name="ph_unit_price" xml:space="preserve">
+    <value>Enter unit price</value>
+  </data>
+  <data name="ph_current_stock" xml:space="preserve">
+    <value>Enter current stock </value>
+  </data>
+  <data name="ph_minimum_stock" xml:space="preserve">
+    <value>Enter minimum stock </value>
+  </data>
+  <data name="ph_expiration_date" xml:space="preserve">
+    <value>Select expiration date</value>
+  </data>
+  <data name="ph_created_at" xml:space="preserve">
+    <value>Select creation date</value>
+  </data>
 </root>

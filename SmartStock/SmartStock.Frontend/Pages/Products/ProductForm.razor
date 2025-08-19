@@ -1,0 +1,87 @@
+﻿<NavigationLock OnBeforeInternalNavigation="OnBeforeInternalNavigation" />
+
+<EditForm EditContext="editContext" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+   
+    <div class="mb-3">
+        <label>@Localizer["product_code"]*</label>
+        <div>
+            <InputText class="form-control"
+                       @bind-Value="@Product.ProductCode"
+                       placeholder="@Localizer["ph_product_code"]" />
+            <ValidationMessage For="@(() => Product.ProductCode)" />
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label>@Localizer["product_name"]*</label>
+        <div>
+            <InputText class="form-control"
+                       @bind-Value="@Product.ProductName"
+                       placeholder="@Localizer["ph_product_name"]" />
+            <ValidationMessage For="@(() => Product.ProductName)" />
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label>@Localizer["category"]:</label>
+        <div>
+            <InputText class="form-control"
+                       @bind-Value="@Product.Category"
+                       placeholder="@Localizer["ph_category"]" />
+            <ValidationMessage For="@(() => Product.Category)" />
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label>@Localizer["unit_price"]*</label>
+        <div>
+            <InputNumber class="form-control"
+                         @bind-Value="@Product.UnitPrice"
+                         placeholder="@Localizer["ph_unit_price"]" />
+            <ValidationMessage For="@(() => Product.UnitPrice)" />
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label>@Localizer["current_stock"]*</label>
+        <div>
+            <InputNumber class="form-control"
+                         @bind-Value="@Product.CurrentStock"
+                         placeholder="@Localizer["ph_current_stock"]" />
+            <ValidationMessage For="@(() => Product.CurrentStock)" />
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label>@Localizer["minimum_stock"]*</label>
+        <div>
+            <InputNumber class="form-control"
+                         @bind-Value="@Product.MinimumStock"
+                         placeholder="@Localizer["ph_minimum_stock"]" />
+            <ValidationMessage For="@(() => Product.MinimumStock)" />
+        </div>
+    </div>
+
+
+    <div class="mb-3">
+        <label>@Localizer["expiration_date"]</label>
+        <div>
+            <InputDate class="form-control" @bind-Value="@Product.ExpirationDate" />
+            <ValidationMessage For="@(() => Product.ExpirationDate)" />
+        </div>
+    </div>
+    <div class="mb-3">
+        <label>@Localizer["created_at"]*</label>
+        <div>
+            <InputDate class="form-control" @bind-Value="@Product.CreatedAt" />
+            <ValidationMessage For="@(() => Product.CreatedAt)" />
+        </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit">@Localizer["save_changes"]</button>
+    <button class="btn btn-success" @onclick="ReturnAction">@Localizer["return"]</button>
+</EditForm>
+
+
+
