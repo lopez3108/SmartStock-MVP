@@ -34,7 +34,7 @@ public partial class CategoryEdit
             else
             {
                 var messageError = await responseHttp.GetErrorMessageAsync();
-                await SweetAlertService.FireAsync(Localizer["Error"], messageError, SweetAlertIcon.Error);
+                await SweetAlertService.FireAsync(Localizer["Error"], Localizer[messageError!], SweetAlertIcon.Error);
             }
         }
         else
@@ -49,8 +49,8 @@ public partial class CategoryEdit
 
         if (responseHttp.Error)
         {
-            var mensajeError = await responseHttp.GetErrorMessageAsync();
-            await SweetAlertService.FireAsync(Localizer["Error"], mensajeError, SweetAlertIcon.Error);
+            var menssageError = await responseHttp.GetErrorMessageAsync();
+            await SweetAlertService.FireAsync(Localizer["Error"], Localizer[menssageError!], SweetAlertIcon.Error);
             return;
         }
 
@@ -62,7 +62,7 @@ public partial class CategoryEdit
             ShowConfirmButton = true,
             Timer = 3000
         });
-        await toast.FireAsync(icon: SweetAlertIcon.Success, message: Localizer["RecordSavedOk"]);
+        await toast.FireAsync(icon: SweetAlertIcon.Success, message: Localizer["record_saved_ok"]);
     }
 
     private void Return()

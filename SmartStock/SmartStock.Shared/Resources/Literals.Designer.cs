@@ -178,6 +178,33 @@ namespace SmartStock.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Record not found..
+        /// </summary>
+        public static string ERR001 {
+            get {
+                return ResourceManager.GetString("ERR001", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot be deleted because it has related records..
+        /// </summary>
+        public static string ERR002 {
+            get {
+                return ResourceManager.GetString("ERR002", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The record you are trying to create already exists..
+        /// </summary>
+        public static string ERR003 {
+            get {
+                return ResourceManager.GetString("ERR003", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         public static string error {
@@ -219,6 +246,15 @@ namespace SmartStock.Shared.Resources {
         public static string leave_and_lose_changes {
             get {
                 return ResourceManager.GetString("leave_and_lose_changes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Field {0} cannot be longer than {1} characters..
+        /// </summary>
+        public static string max_length {
+            get {
+                return ResourceManager.GetString("max_length", resourceCulture);
             }
         }
         
@@ -381,6 +417,15 @@ namespace SmartStock.Shared.Resources {
         public static string record_saved_ok {
             get {
                 return ResourceManager.GetString("record_saved_ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Field {0} is required..
+        /// </summary>
+        public static string required_field {
+            get {
+                return ResourceManager.GetString("required_field", resourceCulture);
             }
         }
         

@@ -40,7 +40,7 @@ namespace SmartStock.Backend.Migrations
                     b.HasIndex("CategoryName")
                         .IsUnique();
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("SmartStock.Shared.Entites.Product", b =>
@@ -84,7 +84,7 @@ namespace SmartStock.Backend.Migrations
                     b.HasIndex("CategoryId", "ProductCode")
                         .IsUnique();
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("SmartStock.Shared.Entites.Product", b =>

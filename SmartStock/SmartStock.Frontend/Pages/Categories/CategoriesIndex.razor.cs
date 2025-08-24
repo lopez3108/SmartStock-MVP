@@ -26,7 +26,7 @@ public partial class CategoriesIndex
     /// Get Async categories
     /// </summary>
     /// <returns></returns>
-    /// 
+    ///
     private async Task LoadAsync()
     {
         var responseHppt = await Repository.GetAsync<List<Category>>("api/categories");
@@ -44,7 +44,7 @@ public partial class CategoriesIndex
     /// </summary>
     /// <param name="category"></param>
     /// <returns></returns>
-    /// 
+    ///
     private async Task DeleteAsync(Category category)
     {
         var result = await SweetAlertService.FireAsync(new SweetAlertOptions
@@ -72,8 +72,8 @@ public partial class CategoriesIndex
             }
             else
             {
-                var mensajeError = await responseHttp.GetErrorMessageAsync();
-                await SweetAlertService.FireAsync(Localizer["Error"], mensajeError, SweetAlertIcon.Error);
+                var menssageError = await responseHttp.GetErrorMessageAsync();
+                await SweetAlertService.FireAsync(Localizer["Error"], Localizer[menssageError!], SweetAlertIcon.Error);
             }
             return;
         }
@@ -85,8 +85,8 @@ public partial class CategoriesIndex
             Position = SweetAlertPosition.BottomEnd,
             ShowConfirmButton = true,
             Timer = 3000,
-            ConfirmButtonText = Localizer["Yes"]
+            ConfirmButtonText = Localizer["yes"]
         });
-        await toast.FireAsync(icon: SweetAlertIcon.Success, message: Localizer["RecordDeletedOk"]);
+        await toast.FireAsync(icon: SweetAlertIcon.Success, message: Localizer["record_deleted_ok"]);
     }
 }

@@ -220,4 +220,19 @@
   <data name="ph_category_name" xml:space="preserve">
     <value>Ingrese el nombre de la categoría</value>
   </data>
+  <data name="ERR001" xml:space="preserve">
+    <value>Registro no encontrado.</value>
+  </data>
+  <data name="ERR002" xml:space="preserve">
+    <value>No se puede borrar, porque tiene registros relacionados.</value>
+  </data>
+  <data name="ERR003" xml:space="preserve">
+    <value>Ya existe el registro que estas intentando crear.</value>
+  </data>
+  <data name="max_length" xml:space="preserve">
+    <value>El campo {0} no puede tener más de {1} caracteres.</value>
+  </data>
+  <data name="required_field" xml:space="preserve">
+    <value>El campo {0} es obligatorio.</value>
+  </data>
 </root>

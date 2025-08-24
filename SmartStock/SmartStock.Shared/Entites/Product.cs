@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using SmartStock.Shared.Resources;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.Metrics;
 
@@ -8,12 +9,14 @@ public class Product
 {
     public int ProductId { get; set; }
 
-    [MaxLength(100)]
-    [Required]
+    [Display(Name = "product_code", ResourceType = typeof(Literals))]
+    [MaxLength(100, ErrorMessageResourceName = "max_length", ErrorMessageResourceType = typeof(Literals))]
+    [Required(ErrorMessageResourceName = "required_field", ErrorMessageResourceType = typeof(Literals))]
     public string ProductCode { get; set; } = null!;
 
-    [MaxLength(100)]
-    [Required]
+    [Display(Name = "product_name", ResourceType = typeof(Literals))]
+    [MaxLength(100, ErrorMessageResourceName = "max_length", ErrorMessageResourceType = typeof(Literals))]
+    [Required(ErrorMessageResourceName = "required_field", ErrorMessageResourceType = typeof(Literals))]
     public string ProductName { get; set; } = null!;
 
     [Required]
@@ -31,7 +34,7 @@ public class Product
     [Required]
     public DateTime CreatedAt { get; set; }
 
-    public Category Category { get; set; } = null!;
+    public Category? Category { get; set; }
 
     public int CategoryId { get; set; }
 }
