@@ -12,7 +12,7 @@ using SmartStock.Backend.Data;
 namespace SmartStock.Backend.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250824004514_AddCategorys")]
+    [Migration("20250824022436_AddCategorys")]
     partial class AddCategorys
     {
         /// <inheritdoc />
@@ -54,9 +54,8 @@ namespace SmartStock.Backend.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"));
 
-                    b.Property<string>("Category")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -85,10 +84,26 @@ namespace SmartStock.Backend.Migrations
 
                     b.HasKey("ProductId");
 
-                    b.HasIndex("ProductCode")
+                    b.HasIndex("CategoryId", "ProductCode")
                         .IsUnique();
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("SmartStock.Shared.Entites.Product", b =>
+                {
+                    b.HasOne("SmartStock.Shared.Entites.Category", "Category")
+                        .WithMany("Products")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("SmartStock.Shared.Entites.Category", b =>
+                {
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

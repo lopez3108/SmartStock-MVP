@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.Metrics;
 
 namespace SmartStock.Shared.Entites;
 
@@ -15,9 +16,6 @@ public class Product
     [Required]
     public string ProductName { get; set; } = null!;
 
-    [MaxLength(100)]
-    public string? Category { get; set; }
-
     [Required]
     [Range(0, double.MaxValue)]
     public decimal UnitPrice { get; set; }
@@ -32,4 +30,8 @@ public class Product
 
     [Required]
     public DateTime CreatedAt { get; set; }
+
+    public Category Category { get; set; } = null!;
+
+    public int CategoryId { get; set; }
 }

@@ -22,16 +22,7 @@
             <ValidationMessage For="@(() => Product.ProductName)" />
         </div>
     </div>
-
-    <div class="mb-3">
-        <label>@Localizer["category"]:</label>
-        <div>
-            <InputText class="form-control"
-                       @bind-Value="@Product.Category"
-                       placeholder="@Localizer["ph_category"]" />
-            <ValidationMessage For="@(() => Product.Category)" />
-        </div>
-    </div>
+  
 
     <div class="mb-3">
         <label>@Localizer["unit_price"]*</label>

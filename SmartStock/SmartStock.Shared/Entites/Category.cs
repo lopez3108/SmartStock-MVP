@@ -9,4 +9,8 @@ public class Category
     [MaxLength(100)]
     [Required]
     public string CategoryName { get; set; } = null!;
+
+    public ICollection<Product>? Products { get; set; }
+
+    public int ProductsCount => Products == null ? 0 : Products.Count;
 }

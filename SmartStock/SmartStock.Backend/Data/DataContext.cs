@@ -17,15 +17,17 @@ public class DataContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+        modelBuilder.Entity<Category>().HasIndex(x => x.CategoryName).IsUnique();
+        modelBuilder.Entity<Product>().HasIndex(x => new { x.CategoryId, x.ProductCode }).IsUnique();
+        DisableCascadingDelete(modelBuilder);
+    }
 
-        // ProductCode único
-        modelBuilder.Entity<Product>()
-            .HasIndex(x => x.ProductCode)
-            .IsUnique();
-
-        // CategoryName único
-        modelBuilder.Entity<Category>()
-            .HasIndex(c => c.CategoryName)
-            .IsUnique();
+    private void DisableCascadingDelete(ModelBuilder modelBuilder)
+    {
+        var relationships = modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys());
+        foreach (var relationship in relationships)
+        {
+            relationship.DeleteBehavior = DeleteBehavior.Restrict;
+        }
     }
 }
