@@ -1,0 +1,34 @@
+﻿SET IDENTITY_INSERT Categories ON;
+
+INSERT INTO Categories (CategoryId, CategoryName) VALUES (1, 'Electrónica');
+INSERT INTO Categories (CategoryId, CategoryName) VALUES (2, 'Computadores');
+INSERT INTO Categories (CategoryId, CategoryName) VALUES (3, 'Celulares');
+INSERT INTO Categories (CategoryId, CategoryName) VALUES (4, 'Tablets');
+INSERT INTO Categories (CategoryId, CategoryName) VALUES (5, 'Accesorios tecnológicos');
+INSERT INTO Categories (CategoryId, CategoryName) VALUES (6, 'Electrodomésticos');
+INSERT INTO Categories (CategoryId, CategoryName) VALUES (7, 'Televisores');
+INSERT INTO Categories (CategoryId, CategoryName) VALUES (8, 'Audio y sonido');
+INSERT INTO Categories (CategoryId, CategoryName) VALUES (9, 'Videojuegos');
+INSERT INTO Categories (CategoryId, CategoryName) VALUES (10, 'Hogar y cocina');
+INSERT INTO Categories (CategoryId, CategoryName) VALUES (11, 'Muebles');
+INSERT INTO Categories (CategoryId, CategoryName) VALUES (12, 'Decoración');
+INSERT INTO Categories (CategoryId, CategoryName) VALUES (13, 'Ropa de hombre');
+INSERT INTO Categories (CategoryId, CategoryName) VALUES (14, 'Ropa de mujer');
+INSERT INTO Categories (CategoryId, CategoryName) VALUES (15, 'Calzado');
+INSERT INTO Categories (CategoryId, CategoryName) VALUES (16, 'Deportes');
+INSERT INTO Categories (CategoryId, CategoryName) VALUES (17, 'Salud y belleza');
+INSERT INTO Categories (CategoryId, CategoryName) VALUES (18, 'Cuidado personal');
+INSERT INTO Categories (CategoryId, CategoryName) VALUES (19, 'Juguetes');
+INSERT INTO Categories (CategoryId, CategoryName) VALUES (20, 'Bebés');
+INSERT INTO Categories (CategoryId, CategoryName) VALUES (21, 'Papelería');
+INSERT INTO Categories (CategoryId, CategoryName) VALUES (22, 'Libros');
+INSERT INTO Categories (CategoryId, CategoryName) VALUES (23, 'Instrumentos musicales');
+INSERT INTO Categories (CategoryId, CategoryName) VALUES (24, 'Mascotas');
+INSERT INTO Categories (CategoryId, CategoryName) VALUES (25, 'Ferretería');
+INSERT INTO Categories (CategoryId, CategoryName) VALUES (26, 'Automotriz');
+INSERT INTO Categories (CategoryId, CategoryName) VALUES (27, 'Jardinería');
+INSERT INTO Categories (CategoryId, CategoryName) VALUES (28, 'Construcción');
+INSERT INTO Categories (CategoryId, CategoryName) VALUES (29, 'Alimentos');
+INSERT INTO Categories (CategoryId, CategoryName) VALUES (30, 'Bebidas');
+
+SET IDENTITY_INSERT Categories OFF;
