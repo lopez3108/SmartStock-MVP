@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SmartStock.Backend.Data;
-using SmartStock.Backend.UnitsOfWork;
+using SmartStock.Backend.UnitsOfWork.Interfaces;
 using SmartStock.Shared.Entites;
 
 namespace SmartStock.Backend.Controllers;

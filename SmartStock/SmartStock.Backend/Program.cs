@@ -1,11 +1,14 @@
 using Microsoft.EntityFrameworkCore;
 using SmartStock.Backend.Data;
-using SmartStock.Backend.Repositories;
-using SmartStock.Backend.UnitsOfWork;
+using SmartStock.Backend.Repositories.Implementations;
+using SmartStock.Backend.Repositories.Interfaces;
+using SmartStock.Backend.UnitsOfWork.Implementations;
+using SmartStock.Backend.UnitsOfWork.Interfaces;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer("name=LocalConnection"));
@@ -13,6 +16,9 @@ builder.Services.AddTransient<SeedDb>();
 
 builder.Services.AddScoped(typeof(IGenericUnitOfWork<>), typeof(GenericUnitOfWork<>));
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
+builder.Services.AddScoped<ICategoriesRepository, CategoriesRepository>();
+builder.Services.AddScoped<ICategoriesUnitOfWork, CategoriesUnitOfWork>();
 
 var app = builder.Build();
 SeedData(app);

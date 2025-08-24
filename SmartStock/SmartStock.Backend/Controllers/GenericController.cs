@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SmartStock.Backend.UnitsOfWork;
+using SmartStock.Backend.UnitsOfWork.Interfaces;
 
 namespace SmartStock.Backend.Controllers;
 

@@ -1,6 +1,6 @@
 ﻿using SmartStock.Shared.Responses;
 
-namespace SmartStock.Backend.UnitsOfWork;
+namespace SmartStock.Backend.UnitsOfWork.Interfaces;
 
 public interface IGenericUnitOfWork<T> where T : class
 {

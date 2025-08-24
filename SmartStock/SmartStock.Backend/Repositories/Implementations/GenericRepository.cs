@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SmartStock.Backend.Data;
+using SmartStock.Backend.Repositories.Interfaces;
 using SmartStock.Shared.Responses;
 
-namespace SmartStock.Backend.Repositories;
+namespace SmartStock.Backend.Repositories.Implementations;
 
 public class GenericRepository<T> : IGenericRepository<T> where T : class
 {

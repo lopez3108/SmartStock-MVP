@@ -1,7 +1,8 @@
-﻿using SmartStock.Backend.Repositories;
+﻿using SmartStock.Backend.Repositories.Interfaces;
+using SmartStock.Backend.UnitsOfWork.Interfaces;
 using SmartStock.Shared.Responses;
 
-namespace SmartStock.Backend.UnitsOfWork;
+namespace SmartStock.Backend.UnitsOfWork.Implementations;
 
 public class GenericUnitOfWork<T> : IGenericUnitOfWork<T> where T : class
 {

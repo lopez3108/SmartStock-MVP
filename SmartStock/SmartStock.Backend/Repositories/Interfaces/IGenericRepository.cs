@@ -1,6 +1,6 @@
 ﻿using SmartStock.Shared.Responses;
 
-namespace SmartStock.Backend.Repositories;
+namespace SmartStock.Backend.Repositories.Interfaces;
 
 public interface IGenericRepository<T> where T : class
 {

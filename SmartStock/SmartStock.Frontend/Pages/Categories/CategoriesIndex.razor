@@ -16,6 +16,7 @@
             <thead>
                 <tr>
                     <th>@Localizer["category"]</th>
+                    <th># @Localizer["products"]</th>
                     <th></th>
                 </tr>
             </thead>
@@ -26,6 +27,10 @@
                         <td>
                             @category.CategoryName
                         </td>
+                        <td>
+                            @category.ProductsCount
+                        </td>
+
                         <td>
                             <a class="btn btn-warning" href="/categories/edit/@category.CategoryId">@Localizer["Edit"]</a>
                             <button class="btn btn-danger" @onclick=@(() => DeleteAsync(category))>@Localizer["Delete"]</button>
