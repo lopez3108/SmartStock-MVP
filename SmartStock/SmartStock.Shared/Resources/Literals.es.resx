@@ -214,4 +214,10 @@
   <data name="ph_created_at" xml:space="preserve">
     <value>Seleccione la fecha de creación</value>
   </data>
+  <data name="categories" xml:space="preserve">
+    <value>Categorías</value>
+  </data>
+  <data name="ph_category_name" xml:space="preserve">
+    <value>Ingrese el nombre de la categoría</value>
+  </data>
 </root>

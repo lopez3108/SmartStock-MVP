@@ -97,6 +97,15 @@ namespace SmartStock.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Categories.
+        /// </summary>
+        public static string categories {
+            get {
+                return ResourceManager.GetString("categories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Category.
         /// </summary>
         public static string category {
@@ -237,6 +246,15 @@ namespace SmartStock.Shared.Resources {
         public static string ph_category {
             get {
                 return ResourceManager.GetString("ph_category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter category name .
+        /// </summary>
+        public static string ph_category_name {
+            get {
+                return ResourceManager.GetString("ph_category_name", resourceCulture);
             }
         }
         

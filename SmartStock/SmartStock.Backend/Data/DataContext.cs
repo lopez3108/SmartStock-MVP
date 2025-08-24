@@ -12,10 +12,20 @@ public class DataContext : DbContext
     }
 
     public DbSet<Product> Products { get; set; }
+    public DbSet<Category> Categories { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-        modelBuilder.Entity<Product>().HasIndex(x => x.ProductCode).IsUnique();
+
+        // ProductCode único
+        modelBuilder.Entity<Product>()
+            .HasIndex(x => x.ProductCode)
+            .IsUnique();
+
+        // CategoryName único
+        modelBuilder.Entity<Category>()
+            .HasIndex(c => c.CategoryName)
+            .IsUnique();
     }
 }
