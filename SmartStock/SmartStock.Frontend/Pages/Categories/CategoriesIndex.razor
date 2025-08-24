@@ -27,8 +27,8 @@
                             @category.CategoryName
                         </td>
                         <td>
-                            <a class="btn btn-warning">@Localizer["edit"]</a>
-                            <button class="btn btn-danger">@Localizer["delete"]</button>
+                            <a class="btn btn-warning" href="/categories/edit/@category.CategoryId">@Localizer["Edit"]</a>
+                            <button class="btn btn-danger" @onclick=@(() => DeleteAsync(category))>@Localizer["Delete"]</button>
                         </td>
                     </tr>
                 }
