@@ -235,4 +235,10 @@
   <data name="required_field" xml:space="preserve">
     <value>Field {0} is required.</value>
   </data>
+  <data name="ERR004" xml:space="preserve">
+    <value>The category Id is not valid.</value>
+  </data>
+  <data name="ERR005" xml:space="preserve">
+    <value>The product Id is not valid.</value>
+  </data>
 </root>

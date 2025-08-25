@@ -205,6 +205,24 @@ namespace SmartStock.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The category Id is not valid..
+        /// </summary>
+        public static string ERR004 {
+            get {
+                return ResourceManager.GetString("ERR004", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The product Id is not valid..
+        /// </summary>
+        public static string ERR005 {
+            get {
+                return ResourceManager.GetString("ERR005", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         public static string error {

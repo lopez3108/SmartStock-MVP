@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SmartStock.Backend.Data;
+using SmartStock.Backend.Helpers;
 using SmartStock.Backend.Repositories.Implementations;
 using SmartStock.Backend.Repositories.Interfaces;
 using SmartStock.Backend.UnitsOfWork.Implementations;
@@ -14,11 +15,16 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer("name=LocalConnection"));
 builder.Services.AddTransient<SeedDb>();
 
+builder.Services.AddScoped<IFileStorage, FileStorage>();
+
 builder.Services.AddScoped(typeof(IGenericUnitOfWork<>), typeof(GenericUnitOfWork<>));
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
 builder.Services.AddScoped<ICategoriesRepository, CategoriesRepository>();
 builder.Services.AddScoped<ICategoriesUnitOfWork, CategoriesUnitOfWork>();
+
+builder.Services.AddScoped<IProductsRepository, ProductsRepository>();
+builder.Services.AddScoped<IProductsUnitOfWork, ProductsUnitOfWork>();
 
 var app = builder.Build();
 SeedData(app);

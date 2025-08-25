@@ -1,9 +1,10 @@
-﻿using SmartStock.Shared.Resources;
+﻿using SmartStock.Shared.Entites;
+using SmartStock.Shared.Resources;
 using System.ComponentModel.DataAnnotations;
 
-namespace SmartStock.Shared.Entites;
+namespace SmartStock.Shared.DTOs;
 
-public class Product
+public class ProductDTO
 {
     public int ProductId { get; set; }
 
@@ -32,9 +33,9 @@ public class Product
     [Required]
     public DateTime CreatedAt { get; set; }
 
-    public string? Image { get; set; } = null!;
+    [Display(Name = "image", ResourceType = typeof(Literals))]
+    public string? Image { get; set; }
 
-    public Category? Category { get; set; }
-
+    [Display(Name = "category", ResourceType = typeof(Literals))]
     public int CategoryId { get; set; }
 }
