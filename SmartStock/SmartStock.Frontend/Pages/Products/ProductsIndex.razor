@@ -11,31 +11,42 @@
 <GenericList MyList="Products">
     <Body>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-              <th>@Localizer["product"]</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var product in Products!)
-        {
-            <tr>
-                <td>
-                    @product.ProductName
-                </td>
-                <td>
-                    <a class="btn btn-warning">@Localizer["edit"]</a>
-                            <button class="btn btn-danger">@Localizer["delete"]</button>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>@Localizer["product"]</th>
+                    <th>@Localizer["Image"]</th>
+                    <th>@Localizer["category"]</th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Products!)
+                {
+                    <tr>
+                        <td>
+                            @product.ProductName
+                        </td>
+                        <td>
+                            <img src="@product.ImageFull" style="width:90px;height:60px;" />
+                        </td>
+                        <td>
+                            @product.Category!.CategoryName
+                        </td>
+
+                        <td>
+                            <a class="btn btn-warning" href="/products/edit/@product.ProductId">@Localizer["edit"]</a>
+                            <button class="btn btn-danger" @onclick=@(() => DeleteAsync(product))>@Localizer["delete"]</button>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
 
     </Body>
-  </GenericList>
+</GenericList>
 
 
 
