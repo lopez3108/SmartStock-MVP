@@ -37,5 +37,6 @@ public class Product
     public Category? Category { get; set; }
 
     public int CategoryId { get; set; }
+
     public string ImageFull => string.IsNullOrEmpty(Image) ? "/images/NoImage.png" : Image;
 }

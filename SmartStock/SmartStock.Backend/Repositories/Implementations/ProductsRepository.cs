@@ -56,7 +56,7 @@ public class ProductsRepository : GenericRepository<Product>, IProductsRepositor
 
     public async Task<ActionResponse<Product>> AddAsync(ProductDTO productDTO)
     {
-        var category = await _context.Categories.FindAsync(productDTO.ProductId);
+        var category = await _context.Categories.FindAsync(productDTO.CategoryId);
         if (category == null)
         {
             return new ActionResponse<Product>
@@ -69,7 +69,13 @@ public class ProductsRepository : GenericRepository<Product>, IProductsRepositor
         var product = new Product
         {
             Category = category,
+            ProductCode = productDTO.ProductCode,
             ProductName = productDTO.ProductName,
+            UnitPrice = productDTO.UnitPrice,
+            CurrentStock = productDTO.CurrentStock,
+            MinimumStock = productDTO.MinimumStock,
+            ExpirationDate = productDTO.ExpirationDate,
+            CreatedAt = productDTO.CreatedAt,
         };
 
         if (!string.IsNullOrEmpty(productDTO.Image))

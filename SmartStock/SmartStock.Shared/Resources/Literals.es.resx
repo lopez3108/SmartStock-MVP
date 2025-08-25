@@ -241,4 +241,13 @@
   <data name="ERR005" xml:space="preserve">
     <value>El código del equipo no es válido.</value>
   </data>
+  <data name="select_file" xml:space="preserve">
+    <value>Seleccione un archivo...</value>
+  </data>
+  <data name="search" xml:space="preserve">
+    <value>Buscar…</value>
+  </data>
+  <data name="select_a_category" xml:space="preserve">
+    <value>-- Selecciona una categoría ---</value>
+  </data>
 </root>

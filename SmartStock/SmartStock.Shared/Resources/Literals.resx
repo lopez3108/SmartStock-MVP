@@ -241,4 +241,13 @@
   <data name="ERR005" xml:space="preserve">
     <value>The product Id is not valid.</value>
   </data>
+  <data name="select_file" xml:space="preserve">
+    <value>Select a File…</value>
+  </data>
+  <data name="search" xml:space="preserve">
+    <value>Search…</value>
+  </data>
+  <data name="select_a_category" xml:space="preserve">
+    <value>-- Select a Category ---</value>
+  </data>
 </root>

@@ -457,6 +457,33 @@ namespace SmartStock.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search….
+        /// </summary>
+        public static string search {
+            get {
+                return ResourceManager.GetString("search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -- Select a Category ---.
+        /// </summary>
+        public static string select_a_category {
+            get {
+                return ResourceManager.GetString("select_a_category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select a File….
+        /// </summary>
+        public static string select_file {
+            get {
+                return ResourceManager.GetString("select_file", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Optimize your business with total inventory control.
         /// </summary>
         public static string subtitle {

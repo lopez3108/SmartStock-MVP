@@ -1,36 +1,52 @@
-﻿<NavigationLock OnBeforeInternalNavigation="OnBeforeInternalNavigation" />
+﻿
+<NavigationLock OnBeforeInternalNavigation="OnBeforeInternalNavigation" />
 
 <EditForm EditContext="editContext" OnValidSubmit="OnValidSubmit">
     <DataAnnotationsValidator />
-   
+
+    <div class="mb-3">
+        <label>@Localizer["category"]:</label>
+        <div>
+            <select class="form-select" @bind="ProductDTO.CategoryId">
+                <option value="0">@Localizer["select_a_category"]</option>
+                @if (categories is not null)
+                {
+                    @foreach (var category in categories)
+                    {
+                        <option value="@category.CategoryId">@category.CategoryName</option>
+                    }
+                }
+            </select>
+            <ValidationMessage For="@(() => ProductDTO.CategoryId)" />
+        </div>
+    </div>
+
     <div class="mb-3">
         <label>@Localizer["product_code"]*</label>
         <div>
-            <InputText class="form-control"
-                       @bind-Value="@Product.ProductCode"
-                       placeholder="@Localizer["ph_product_code"]" />
-            <ValidationMessage For="@(() => Product.ProductCode)" />
+            <InputText class="form-control" @bind-Value="@ProductDTO.ProductCode" />
+            <ValidationMessage For="@(() => ProductDTO.ProductCode)" />
         </div>
-    </div>
+    </div>   
 
     <div class="mb-3">
         <label>@Localizer["product_name"]*</label>
         <div>
             <InputText class="form-control"
-                       @bind-Value="@Product.ProductName"
+                       @bind-Value="@ProductDTO.ProductName"
                        placeholder="@Localizer["ph_product_name"]" />
-            <ValidationMessage For="@(() => Product.ProductName)" />
+            <ValidationMessage For="@(() => ProductDTO.ProductName)" />
         </div>
     </div>
-  
+
 
     <div class="mb-3">
         <label>@Localizer["unit_price"]*</label>
         <div>
             <InputNumber class="form-control"
-                         @bind-Value="@Product.UnitPrice"
+                         @bind-Value="@ProductDTO.UnitPrice"
                          placeholder="@Localizer["ph_unit_price"]" />
-            <ValidationMessage For="@(() => Product.UnitPrice)" />
+            <ValidationMessage For="@(() => ProductDTO.UnitPrice)" />
         </div>
     </div>
 
@@ -38,9 +54,9 @@
         <label>@Localizer["current_stock"]*</label>
         <div>
             <InputNumber class="form-control"
-                         @bind-Value="@Product.CurrentStock"
+                         @bind-Value="@ProductDTO.CurrentStock"
                          placeholder="@Localizer["ph_current_stock"]" />
-            <ValidationMessage For="@(() => Product.CurrentStock)" />
+            <ValidationMessage For="@(() => ProductDTO.CurrentStock)" />
         </div>
     </div>
 
@@ -48,9 +64,9 @@
         <label>@Localizer["minimum_stock"]*</label>
         <div>
             <InputNumber class="form-control"
-                         @bind-Value="@Product.MinimumStock"
+                         @bind-Value="@ProductDTO.MinimumStock"
                          placeholder="@Localizer["ph_minimum_stock"]" />
-            <ValidationMessage For="@(() => Product.MinimumStock)" />
+            <ValidationMessage For="@(() => ProductDTO.MinimumStock)" />
         </div>
     </div>
 
@@ -58,21 +74,26 @@
     <div class="mb-3">
         <label>@Localizer["expiration_date"]</label>
         <div>
-            <InputDate class="form-control" @bind-Value="@Product.ExpirationDate" />
-            <ValidationMessage For="@(() => Product.ExpirationDate)" />
+            <InputDate class="form-control" @bind-Value="@ProductDTO.ExpirationDate" />
+            <ValidationMessage For="@(() => ProductDTO.ExpirationDate)" />
         </div>
     </div>
     <div class="mb-3">
         <label>@Localizer["created_at"]*</label>
         <div>
-            <InputDate class="form-control" @bind-Value="@Product.CreatedAt" />
-            <ValidationMessage For="@(() => Product.CreatedAt)" />
+            <InputDate class="form-control" @bind-Value="@ProductDTO.CreatedAt" />
+            <ValidationMessage For="@(() => ProductDTO.CreatedAt)" />
         </div>
     </div>
+    <div class="mb-3">
+        <InputImg Label=@Localizer["Image"] ImageSelected="ImageSelected" ImageURL="@imageUrl" />
+    </div>
+
 
     <button class="btn btn-primary" type="submit">@Localizer["save_changes"]</button>
     <button class="btn btn-success" @onclick="ReturnAction">@Localizer["return"]</button>
 </EditForm>
+
 
 
 

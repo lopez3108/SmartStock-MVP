@@ -2,16 +2,15 @@ using CurrieTechnologies.Razor.SweetAlert2;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
 using SmartStock.Frontend.Repositories;
-using SmartStock.Shared.Entites;
+using SmartStock.Shared.DTOs;
 using SmartStock.Shared.Resources;
-using System.Diagnostics.Metrics;
 
 namespace SmartStock.Frontend.Pages.Products;
 
 public partial class ProductCreate
 {
     private ProductForm? productForm;
-    private Product product = new();
+    private ProductDTO productDTO = new();
 
     [Inject] private IRepository Repository { get; set; } = null!;
     [Inject] private NavigationManager NavigationManager { get; set; } = null!;
@@ -20,11 +19,11 @@ public partial class ProductCreate
 
     private async Task CreateAsync()
     {
-        var responseHttp = await Repository.PostAsync("/api/products", product);
+        var responseHttp = await Repository.PostAsync("/api/products/full", productDTO);
         if (responseHttp.Error)
         {
             var message = await responseHttp.GetErrorMessageAsync();
-            await SweetAlertService.FireAsync(Localizer["Error"], message);
+            await SweetAlertService.FireAsync(Localizer["Error"], Localizer[message!], SweetAlertIcon.Error);
             return;
         }
 
@@ -36,7 +35,7 @@ public partial class ProductCreate
             ShowConfirmButton = true,
             Timer = 3000
         });
-        await toast.FireAsync(icon: SweetAlertIcon.Success, message: Localizer["record_created_ok"]);
+        await toast.FireAsync(icon: SweetAlertIcon.Success, message: Localizer["RecordCreatedOk"]);
     }
 
     private void Return()
