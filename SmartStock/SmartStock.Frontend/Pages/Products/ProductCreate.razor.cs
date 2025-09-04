@@ -35,7 +35,7 @@ public partial class ProductCreate
             ShowConfirmButton = true,
             Timer = 3000
         });
-        await toast.FireAsync(icon: SweetAlertIcon.Success, message: Localizer["RecordCreatedOk"]);
+        await toast.FireAsync(icon: SweetAlertIcon.Success, message: Localizer["record_created_ok"]);
     }
 
     private void Return()

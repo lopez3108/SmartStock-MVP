@@ -73,7 +73,7 @@ public partial class ProductEdit
             ShowConfirmButton = true,
             Timer = 3000
         });
-        await toast.FireAsync(icon: SweetAlertIcon.Success, message: Localizer["RecordSavedOk"]);
+        await toast.FireAsync(icon: SweetAlertIcon.Success, message: Localizer["record_saved_ok"]);
     }
 
     private void Return()

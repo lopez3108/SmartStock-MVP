@@ -1,15 +1,20 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SmartStock.Backend.Helpers;
 using SmartStock.Shared.Entites;
+using System.Globalization;
+using System.Text;
 
 namespace SmartStock.Backend.Data;
 
 public class SeedDb
 {
     private readonly DataContext _context;
+    private readonly IFileStorage _fileStorage;
 
-    public SeedDb(DataContext context)
+    public SeedDb(DataContext context, IFileStorage fileStorage)
     {
         _context = context;
+        _fileStorage = fileStorage;
     }
 
     public async Task SeedAsync()
@@ -33,29 +38,50 @@ public class SeedDb
         if (!_context.Products.Any())
         {
             var random = new Random();
+            var imageExtensions = new[] { ".png", ".jpg", ".jpeg" };
 
             foreach (var category in _context.Categories)
             {
-                // Crear un producto base por cada categoría
-                _context.Products.Add(new Product
+                // Definir producto base
+                var baseProduct = new Product
                 {
                     ProductCode = $"{category.CategoryName.Substring(0, Math.Min(4, category.CategoryName.Length)).ToUpper()}-001",
                     ProductName = $"{category.CategoryName} básico",
-                    UnitPrice = random.Next(100, 2000), // precio aleatorio de ejemplo
+                    UnitPrice = random.Next(100, 2000),
                     CurrentStock = random.Next(10, 100),
                     MinimumStock = 5,
-                    ExpirationDate = null, // si aplica para alimentos, se puede ajustar
+                    ExpirationDate = null,
                     CreatedAt = DateTime.UtcNow,
                     Category = category!,
                     CategoryId = category.CategoryId
-                });
+                };
 
+                // Buscar imagen con varias extensiones
+                string? filePath = null;
+                foreach (var ext in imageExtensions)
+                {
+                    var tempPath = $"{Environment.CurrentDirectory}\\Images\\Flags\\{baseProduct.ProductName}{ext}";
+                    if (File.Exists(tempPath))
+                    {
+                        filePath = tempPath;
+                        break;
+                    }
+                }
+
+                if (filePath != null)
+                {
+                    var fileBytes = File.ReadAllBytes(filePath);
+                    baseProduct.Image = await _fileStorage.SaveFileAsync(fileBytes, "jpg", "products");
+                }
+
+                _context.Products.Add(baseProduct);
+
+                // Si la categoría es Televisores, crear más productos
                 if (category.CategoryName == "Televisores")
                 {
-                    // Crear 4 productos adicionales en la categoría Televisores
                     for (int i = 2; i <= 5; i++)
                     {
-                        _context.Products.Add(new Product
+                        var tvProduct = new Product
                         {
                             ProductCode = $"TELE-{i:D3}",
                             ProductName = $"Televisor modelo {i}",
@@ -66,12 +92,53 @@ public class SeedDb
                             CreatedAt = DateTime.UtcNow,
                             Category = category!,
                             CategoryId = category.CategoryId
-                        });
+                        };
+
+                        // Buscar imagen del televisor con varias extensiones
+                        string? tvFilePath = null;
+                        foreach (var ext in imageExtensions)
+                        {
+                            var tempPath = $"{Environment.CurrentDirectory}\\Images\\Flags\\{tvProduct.ProductName}{ext}";
+                            if (File.Exists(tempPath))
+                            {
+                                tvFilePath = tempPath;
+                                break;
+                            }
+                        }
+
+                        if (tvFilePath != null)
+                        {
+                            var fileBytes = File.ReadAllBytes(tvFilePath);
+                            tvProduct.Image = await _fileStorage.SaveFileAsync(fileBytes, "jpg", "products");
+                        }
+
+                        _context.Products.Add(tvProduct);
                     }
                 }
             }
 
             await _context.SaveChangesAsync();
         }
+    }
+
+    private string NormalizeFileName(string name)
+    {
+        // Quita acentos y caracteres raros
+        var normalized = name.Normalize(NormalizationForm.FormD);
+        var sb = new StringBuilder();
+
+        foreach (var c in normalized)
+        {
+            var unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
+            if (unicodeCategory != UnicodeCategory.NonSpacingMark)
+            {
+                sb.Append(c);
+            }
+        }
+
+        // Reemplazar espacios por guiones bajos
+        return sb.ToString().Normalize(NormalizationForm.FormC)
+                 .Replace(" ", "_")
+                 .Replace("-", "_");
     }
 }
