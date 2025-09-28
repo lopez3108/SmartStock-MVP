@@ -1,4 +1,5 @@
-﻿using SmartStock.Shared.Entites;
+﻿using SmartStock.Shared.DTOs;
+using SmartStock.Shared.Entites;
 using SmartStock.Shared.Responses;
 
 namespace SmartStock.Backend.Repositories.Interfaces;
@@ -30,4 +31,18 @@ public interface ICategoriesRepository
     /// Retorna una colección enumerable de categorías.
     /// </returns>
     Task<IEnumerable<Category>> GetComboAsync();
+
+    /// <summary>
+    ///
+    /// </summary>
+    /// <param name="pagination"></param>
+    /// <returns></returns>
+    Task<ActionResponse<IEnumerable<Category>>> GetAsync(PaginationDTO pagination);
+
+    /// <summary>
+    ///
+    /// </summary>
+    /// <param name="pagination"></param>
+    /// <returns></returns>
+    Task<ActionResponse<int>> GetTotalRecordsAsync(PaginationDTO pagination);
 }

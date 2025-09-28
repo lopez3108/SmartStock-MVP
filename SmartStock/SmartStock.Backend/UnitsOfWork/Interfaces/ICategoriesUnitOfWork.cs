@@ -1,4 +1,5 @@
-﻿using SmartStock.Shared.Entites;
+﻿using SmartStock.Shared.DTOs;
+using SmartStock.Shared.Entites;
 using SmartStock.Shared.Responses;
 
 namespace SmartStock.Backend.UnitsOfWork.Interfaces;
@@ -23,4 +24,18 @@ public interface ICategoriesUnitOfWork
     /// </summary>
     /// <returns>Una colección de categorías.</returns>
     Task<IEnumerable<Category>> GetComboAsync();
+
+    /// <summary>
+    /// Obtiene de forma paginada el listado de categorías según los parámetros de paginación recibidos.
+    /// </summary>
+    /// <param name="pagination"></param>
+    /// <returns></returns>
+    Task<ActionResponse<IEnumerable<Category>>> GetAsync(PaginationDTO pagination);
+
+    /// <summary>
+    /// Obtiene el número total de registros de categorías aplicando los parámetros de paginación especificados.
+    /// </summary>
+    /// <param name="pagination"></param>
+    /// <returns></returns>
+    Task<ActionResponse<int>> GetTotalRecordsAsync(PaginationDTO pagination);
 }

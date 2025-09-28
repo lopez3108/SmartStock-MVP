@@ -120,25 +120,5 @@ public class SeedDb
             await _context.SaveChangesAsync();
         }
     }
-
-    private string NormalizeFileName(string name)
-    {
-        // Quita acentos y caracteres raros
-        var normalized = name.Normalize(NormalizationForm.FormD);
-        var sb = new StringBuilder();
-
-        foreach (var c in normalized)
-        {
-            var unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
-            if (unicodeCategory != UnicodeCategory.NonSpacingMark)
-            {
-                sb.Append(c);
-            }
-        }
-
-        // Reemplazar espacios por guiones bajos
-        return sb.ToString().Normalize(NormalizationForm.FormC)
-                 .Replace(" ", "_")
-                 .Replace("-", "_");
-    }
+       
 }

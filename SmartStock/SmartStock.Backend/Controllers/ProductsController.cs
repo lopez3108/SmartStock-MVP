@@ -68,4 +68,36 @@ public class ProductsController : GenericController<Product>
         }
         return BadRequest(action.Message);
     }
+
+    /// <summary>
+    /// Obtiene de manera paginada la colección de productos según los parámetros especificados.
+    /// </summary>
+    /// <param name="pagination"></param>
+    /// <returns></returns>
+    [HttpGet("paginated")]
+    public override async Task<IActionResult> GetAsync(PaginationDTO pagination)
+    {
+        var response = await _productsUnitOfWork.GetAsync(pagination);
+        if (response.WasSuccess)
+        {
+            return Ok(response.Result);
+        }
+        return BadRequest();
+    }
+
+    /// <summary>
+    /// Obtiene el número total de registros de productos aplicando los criterios de paginación especificados.
+    /// </summary>
+    /// <param name="pagination"></param>
+    /// <returns></returns>
+    [HttpGet("totalRecordsPaginated")]
+    public async Task<IActionResult> GetTotalRecordsAsync([FromQuery] PaginationDTO pagination)
+    {
+        var action = await _productsUnitOfWork.GetTotalRecordsAsync(pagination);
+        if (action.WasSuccess)
+        {
+            return Ok(action.Result);
+        }
+        return BadRequest();
+    }
 }

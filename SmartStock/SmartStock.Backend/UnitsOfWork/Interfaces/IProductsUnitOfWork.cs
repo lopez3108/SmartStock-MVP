@@ -15,4 +15,18 @@ public interface IProductsUnitOfWork
     Task<ActionResponse<Product>> GetAsync(int id);
 
     Task<ActionResponse<IEnumerable<Product>>> GetAsync();
+
+    /// <summary>
+    /// Obtiene de manera paginada la colección de productos según los parámetros especificados.
+    /// </summary>
+    /// <param name="pagination"></param>
+    /// <returns></returns>
+    Task<ActionResponse<IEnumerable<Product>>> GetAsync(PaginationDTO pagination);
+
+    /// <summary>
+    ///  Obtiene el número total de registros de productos aplicando los criterios de paginación especificados.
+    /// </summary>
+    /// <param name="pagination"></param>
+    /// <returns></returns>
+    Task<ActionResponse<int>> GetTotalRecordsAsync(PaginationDTO pagination);
 }

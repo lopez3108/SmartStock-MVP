@@ -1,5 +1,6 @@
 ﻿using SmartStock.Backend.Repositories.Interfaces;
 using SmartStock.Backend.UnitsOfWork.Interfaces;
+using SmartStock.Shared.DTOs;
 using SmartStock.Shared.Entites;
 using SmartStock.Shared.Responses;
 
@@ -35,4 +36,18 @@ public class CategoriesUnitOfWork : GenericUnitOfWork<Category>, ICategoriesUnit
     /// <returns>Una colección de categorías.</returns>
     public async Task<IEnumerable<Category>> GetComboAsync()
         => await _categoriesRepository.GetComboAsync();
+
+    /// <summary>
+    /// Obtiene de forma paginada el listado de categorías según los parámetros de paginación recibidos.
+    /// </summary>
+    /// <param name="pagination"></param>
+    /// <returns></returns>
+    public override async Task<ActionResponse<IEnumerable<Category>>> GetAsync(PaginationDTO pagination) => await _categoriesRepository.GetAsync(pagination);
+
+    /// <summary>
+    /// Obtiene el número total de registros de categorías aplicando los parámetros de paginación especificados.
+    /// </summary>
+    /// <param name="pagination"></param>
+    /// <returns></returns>
+    public async Task<ActionResponse<int>> GetTotalRecordsAsync(PaginationDTO pagination) => await _categoriesRepository.GetTotalRecordsAsync(pagination);
 }

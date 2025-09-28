@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using SmartStock.Backend.Data;
 using SmartStock.Backend.UnitsOfWork.Implementations;
 using SmartStock.Backend.UnitsOfWork.Interfaces;
+using SmartStock.Shared.DTOs;
 using SmartStock.Shared.Entites;
 
 namespace SmartStock.Backend.Controllers;
@@ -69,5 +70,38 @@ public class CategoriesController : GenericController<Category>
             return Ok(response.Result);
         }
         return NotFound(response.Message);
+    }
+
+    /// <summary>
+    /// Obtiene de forma paginada el listado de categorías según los parámetros de paginación recibidos.
+    /// </summary>
+    /// <param name="pagination"></param>
+    /// <returns></returns>
+    [HttpGet("paginated")]
+    public override async Task<IActionResult> GetAsync(PaginationDTO pagination)
+    {
+        var response = await _categoriesUnitOfWork.GetAsync(pagination);
+        if (response.WasSuccess)
+        {
+            return Ok(response.Result);
+        }
+        return BadRequest();
+    }
+
+    /// <summary>
+    /// Obtiene el número total de registros de categorías aplicando los parámetros de paginación especificados.
+    /// </summary>
+    /// </summary>
+    /// <param name="pagination"></param>
+    /// <returns></returns>
+    [HttpGet("totalRecordsPaginated")]
+    public async Task<IActionResult> GetTotalRecordsAsync([FromQuery] PaginationDTO pagination)
+    {
+        var action = await _categoriesUnitOfWork.GetTotalRecordsAsync(pagination);
+        if (action.WasSuccess)
+        {
+            return Ok(action.Result);
+        }
+        return BadRequest();
     }
 }

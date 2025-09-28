@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SmartStock.Backend.UnitsOfWork.Interfaces;
+using SmartStock.Shared.DTOs;
 
 namespace SmartStock.Backend.Controllers;
 
@@ -98,5 +99,36 @@ public class GenericController<T> : Controller where T : class
             return NoContent();
         }
         return BadRequest(action.Message);
+    }
+
+    /// <summary>
+    /// Obtiene una lista paginada de registros a partir de los parámetros de paginación enviados en la consulta.
+    /// </summary>
+    /// <param name="pagination"></param>
+    /// <returns></returns>
+    [HttpGet("paginated")]
+    public virtual async Task<IActionResult> GetAsync([FromQuery] PaginationDTO pagination)
+    {
+        var action = await _unitOfWork.GetAsync(pagination);
+        if (action.WasSuccess)
+        {
+            return Ok(action.Result);
+        }
+        return BadRequest();
+    }
+
+    /// <summary>
+    ///  Obtiene el número total de registros disponibles en la base de datos.
+    /// </summary>
+    /// <returns></returns>
+    [HttpGet("totalRecords")]
+    public virtual async Task<IActionResult> GetTotalRecordsAsync()
+    {
+        var action = await _unitOfWork.GetTotalRecordsAsync();
+        if (action.WasSuccess)
+        {
+            return Ok(action.Result);
+        }
+        return BadRequest();
     }
 }

@@ -184,4 +184,52 @@ public class ProductsRepository : GenericRepository<Product>, IProductsRepositor
             };
         }
     }
+
+    /// <summary>
+    /// Obtiene de manera paginada la colección de productos según los parámetros especificados.
+    /// </summary>
+    /// <param name="pagination"></param>
+    /// <returns></returns>
+    public override async Task<ActionResponse<IEnumerable<Product>>> GetAsync(PaginationDTO pagination)
+    {
+        var queryable = _context.Products
+            .Include(x => x.Category)
+            .AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(pagination.Filter))
+        {
+            queryable = queryable.Where(x => x.ProductName.ToLower().Contains(pagination.Filter.ToLower()));
+        }
+
+        return new ActionResponse<IEnumerable<Product>>
+        {
+            WasSuccess = true,
+            Result = await queryable
+                .OrderBy(x => x.ProductName)
+                .Paginate(pagination)
+                .ToListAsync()
+        };
+    }
+
+    /// <summary>
+    ///  Obtiene el número total de registros de productos aplicando los criterios de paginación especificados.
+    /// </summary>
+    /// <param name="pagination"></param>
+    /// <returns></returns>
+    public async Task<ActionResponse<int>> GetTotalRecordsAsync(PaginationDTO pagination)
+    {
+        var queryable = _context.Products.AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(pagination.Filter))
+        {
+            queryable = queryable.Where(x => x.ProductName.ToLower().Contains(pagination.Filter.ToLower()));
+        }
+
+        double count = await queryable.CountAsync();
+        return new ActionResponse<int>
+        {
+            WasSuccess = true,
+            Result = (int)count
+        };
+    }
 }

@@ -1,4 +1,5 @@
-﻿using SmartStock.Shared.Responses;
+﻿using SmartStock.Shared.DTOs;
+using SmartStock.Shared.Responses;
 
 namespace SmartStock.Backend.Repositories.Interfaces;
 
@@ -37,4 +38,17 @@ public interface IGenericRepository<T> where T : class
     /// <param name="entity"></param>
     /// <returns>La entidad actualizada con el resultado de la operación.</returns>
     Task<ActionResponse<T>> UpdateAsync(T entity);
+
+    /// <summary>
+    /// Obtiene una lista paginada de registros a partir de los parámetros de paginación enviados en la consulta.
+    /// </summary>
+    /// <param name="pagination"></param>
+    /// <returns></returns>
+    Task<ActionResponse<IEnumerable<T>>> GetAsync(PaginationDTO pagination);
+
+    /// <summary>
+    ///  Obtiene el número total de registros disponibles en la base de datos.
+    /// </summary>
+    /// <returns></returns>
+    Task<ActionResponse<int>> GetTotalRecordsAsync();
 }

@@ -1,5 +1,6 @@
 ﻿using SmartStock.Backend.Repositories.Interfaces;
 using SmartStock.Backend.UnitsOfWork.Interfaces;
+using SmartStock.Shared.DTOs;
 using SmartStock.Shared.Responses;
 
 namespace SmartStock.Backend.UnitsOfWork.Implementations;
@@ -59,4 +60,17 @@ public class GenericUnitOfWork<T> : IGenericUnitOfWork<T> where T : class
     /// o información del error en caso contrario.
     /// </returns>
     public virtual async Task<ActionResponse<T>> UpdateAsync(T model) => await _repository.UpdateAsync(model);
+
+    /// <summary>
+    /// Obtiene una lista paginada de registros a partir de los parámetros de paginación enviados en la consulta.
+    /// </summary>
+    /// <param name="pagination"></param>
+    /// <returns></returns>
+    public virtual async Task<ActionResponse<IEnumerable<T>>> GetAsync(PaginationDTO pagination) => await _repository.GetAsync(pagination);
+
+    /// <summary>
+    ///  Obtiene el número total de registros disponibles en la base de datos.
+    /// </summary>
+    /// <returns></returns>
+    public virtual async Task<ActionResponse<int>> GetTotalRecordsAsync() => await _repository.GetTotalRecordsAsync();
 }

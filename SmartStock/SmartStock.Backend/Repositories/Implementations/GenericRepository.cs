@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SmartStock.Backend.Data;
+using SmartStock.Backend.Helpers;
 using SmartStock.Backend.Repositories.Interfaces;
+using SmartStock.Shared.DTOs;
 using SmartStock.Shared.Responses;
 
 namespace SmartStock.Backend.Repositories.Implementations;
@@ -216,6 +218,39 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         {
             WasSuccess = false,
             Message = "ERR003"
+        };
+    }
+
+    /// <summary>
+    /// Obtiene de forma paginada el listado de categorías según los parámetros de paginación recibidos.
+    /// </summary>
+    /// <param name="pagination"></param>
+    /// <returns></returns>
+    public virtual async Task<ActionResponse<IEnumerable<T>>> GetAsync(PaginationDTO pagination)
+    {
+        var queryable = _entity.AsQueryable();
+
+        return new ActionResponse<IEnumerable<T>>
+        {
+            WasSuccess = true,
+            Result = await queryable
+                .Paginate(pagination)
+                .ToListAsync()
+        };
+    }
+
+    /// <summary>
+    ///  Obtiene el número total de registros disponibles en la base de datos.
+    /// </summary>
+    /// <returns></returns>
+    public virtual async Task<ActionResponse<int>> GetTotalRecordsAsync()
+    {
+        var queryable = _entity.AsQueryable();
+        double count = await queryable.CountAsync();
+        return new ActionResponse<int>
+        {
+            WasSuccess = true,
+            Result = (int)count
         };
     }
 }
