@@ -268,4 +268,7 @@
   <data name="records_number" xml:space="preserve">
     <value>Número de Registros:</value>
   </data>
+  <data name="please_wait" xml:space="preserve">
+    <value>Por favor espere...</value>
+  </data>
 </root>

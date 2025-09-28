@@ -1,4 +1,4 @@
-﻿<NavigationLock OnBeforeInternalNavigation="OnBeforeInternalNavigation" />
+﻿@* <NavigationLock OnBeforeInternalNavigation="OnBeforeInternalNavigation" />
 
 <EditForm EditContext="editContext" OnValidSubmit="OnValidSubmit">
     <DataAnnotationsValidator />
@@ -18,6 +18,29 @@
     <button class="btn btn-primary" type="submit">@Localizer["save_changes"]</button>
     <button class="btn btn-success" @onclick="ReturnAction">@Localizer["return"]</button>
 </EditForm>
+ *@
 
 
+<NavigationLock OnBeforeInternalNavigation="OnBeforeInternalNavigation" />
 
+<EditForm EditContext="editContext" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+    <MudTextField Label="@Localizer["category"]"
+                  @bind-Value="@Category.CategoryName"
+                  For="@(() => Category.CategoryName)"
+                  Class="mb-4" />
+
+    <MudButton Variant="Variant.Outlined"
+               StartIcon="@Icons.Material.Filled.ArrowBack"
+               Color="Color.Info"
+               OnClick="ReturnAction">
+        @Localizer["return"]
+    </MudButton>
+
+    <MudButton Variant="Variant.Outlined"
+               StartIcon="@Icons.Material.Filled.Check"
+               Color="Color.Primary"
+               ButtonType="ButtonType.Submit">
+        @Localizer["save_changes"]
+    </MudButton>
+</EditForm>
