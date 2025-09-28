@@ -250,4 +250,19 @@
   <data name="select_a_category" xml:space="preserve">
     <value>-- Selecciona una categoría ---</value>
   </data>
+  <data name="all" xml:space="preserve">
+    <value>Todos</value>
+  </data>
+  <data name="filter" xml:space="preserve">
+    <value>Filtrar</value>
+  </data>
+  <data name="clean" xml:space="preserve">
+    <value>Limpiar</value>
+  </data>
+  <data name="actions" xml:space="preserve">
+    <value>Acciones</value>
+  </data>
+  <data name="no" xml:space="preserve">
+    <value>No</value>
+  </data>
 </root>

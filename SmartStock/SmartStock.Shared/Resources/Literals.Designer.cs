@@ -88,6 +88,24 @@ namespace SmartStock.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Actions.
+        /// </summary>
+        public static string actions {
+            get {
+                return ResourceManager.GetString("actions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All.
+        /// </summary>
+        public static string all {
+            get {
+                return ResourceManager.GetString("all", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string cancel {
@@ -111,6 +129,15 @@ namespace SmartStock.Shared.Resources {
         public static string category {
             get {
                 return ResourceManager.GetString("category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clean.
+        /// </summary>
+        public static string clean {
+            get {
+                return ResourceManager.GetString("clean", resourceCulture);
             }
         }
         
@@ -241,6 +268,15 @@ namespace SmartStock.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Filter.
+        /// </summary>
+        public static string filter {
+            get {
+                return ResourceManager.GetString("filter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         public static string home {
@@ -282,6 +318,15 @@ namespace SmartStock.Shared.Resources {
         public static string minimum_stock {
             get {
                 return ResourceManager.GetString("minimum_stock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        public static string no {
+            get {
+                return ResourceManager.GetString("no", resourceCulture);
             }
         }
         
