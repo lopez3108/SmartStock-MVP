@@ -1,47 +1,66 @@
-﻿
-@page "/categories"
+﻿@page "/categories"
 
-<h3>@Localizer["categories"]</h3>
+@if (loading)
 
-<div class="mb-3">
-    <a class="btn btn-primary" href="/categories/create">@Localizer["new"] @Localizer["category"]</a>
-</div>
-
-
-
-<GenericList MyList="Categories">
-    <Body>
-
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>@Localizer["category"]</th>
-                    <th># @Localizer["products"]</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var category in Categories!)
-                {
-                    <tr>
-                        <td>
-                            @category.CategoryName
-                        </td>
-                        <td>
-                            @category.ProductsCount
-                        </td>
-
-                        <td>
-                            <a class="btn btn-warning" href="/categories/edit/@category.CategoryId">@Localizer["Edit"]</a>
-                            <button class="btn btn-danger" @onclick=@(() => DeleteAsync(category))>@Localizer["Delete"]</button>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-
-    </Body>
-</GenericList>
-
-
+{
+    <Loading />
+}
+else
+{
+    <MudTable Items="@Categories"
+              @ref="table"
+              ServerData="LoadListAsync"
+              Dense="true"
+              Hover="true"
+              Striped="true"
+              FixedHeader="true"
+              FixedFooter="true">
+        <ToolBarContent>
+            <div class="d-flex justify-content-between">
+                <MudText Typo="Typo.h6" Class="me-4"> @Localizer["categories"]</MudText>
+                <MudButton Variant="Variant.Outlined"
+                           EndIcon="@Icons.Material.Filled.Add"
+                           Color="Color.Info" OnClick="@(() => ShowModalAsync())">
+                    @Localizer["new"]
+                </MudButton>
+            </div>
+            <MudSpacer />
+            <FilterComponent ApplyFilter="SetFilterValue" />
+        </ToolBarContent>
+        <HeaderContent>
+            <MudTh>@Localizer["category"]</MudTh>
+            <MudTh># @Localizer["products"]</MudTh>
+            <MudTh>@Localizer["actions"]</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd>@context.CategoryName</MudTd>
+            <MudTd>@context.ProductsCount</MudTd>
+            <MudTd>
+                <MudTooltip Text="@Localizer["edit"]">
+                    <MudButton Variant="Variant.Filled"
+                               Color="Color.Warning"
+                               OnClick="@(() => ShowModalAsync(context.CategoryId, true))">
+                        <MudIcon Icon="@Icons.Material.Filled.Edit" />
+                    </MudButton>
+                </MudTooltip>
+                <MudTooltip Text="@Localizer["delete"]">
+                    <MudButton Variant="Variant.Filled"
+                               Color="Color.Error"
+                               OnClick="@(() => DeleteAsync(@context))">
+                        <MudIcon Icon="@Icons.Material.Filled.Delete" />
+                    </MudButton>
+                </MudTooltip>
+            </MudTd>
+        </RowTemplate>
+        <NoRecordsContent>
+            <MudText>@Localizer["no_records"]</MudText>
+        </NoRecordsContent>
+        <PagerContent>
+            <MudTablePager RowsPerPageString=@Localizer["records_number"]
+                           PageSizeOptions="pageSizeOptions"
+                           AllItemsText=@Localizer["all"]
+                           InfoFormat="@infoFormat" />
+        </PagerContent>
+    </MudTable>
+}
 

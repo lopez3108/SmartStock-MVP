@@ -484,6 +484,15 @@ namespace SmartStock.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Records Number.
+        /// </summary>
+        public static string records_number {
+            get {
+                return ResourceManager.GetString("records_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Field {0} is required..
         /// </summary>
         public static string required_field {

@@ -265,4 +265,7 @@
   <data name="no" xml:space="preserve">
     <value>No</value>
   </data>
+  <data name="records_number" xml:space="preserve">
+    <value>Número de Registros:</value>
+  </data>
 </root>
