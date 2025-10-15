@@ -1,7 +1,7 @@
 ﻿using SmartStock.Shared.Resources;
 using System.ComponentModel.DataAnnotations;
 
-namespace SmartStock.Shared.Entites;
+namespace SmartStock.Shared.Entities;
 
 public class Category
 {

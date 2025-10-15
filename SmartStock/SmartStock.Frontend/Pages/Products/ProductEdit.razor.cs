@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
 using SmartStock.Frontend.Repositories;
 using SmartStock.Shared.DTOs;
-using SmartStock.Shared.Entites;
+using SmartStock.Shared.Entities;
 using SmartStock.Shared.Resources;
 
 namespace SmartStock.Frontend.Pages.Products;

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using SmartStock.Backend.Data;
 using SmartStock.Backend.UnitsOfWork.Interfaces;
 using SmartStock.Shared.DTOs;
-using SmartStock.Shared.Entites;
+using SmartStock.Shared.Entities;
 
 namespace SmartStock.Backend.Controllers;
 

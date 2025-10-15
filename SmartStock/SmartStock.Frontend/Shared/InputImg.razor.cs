@@ -21,7 +21,7 @@ public partial class InputImg
         base.OnParametersSet();
         if (string.IsNullOrWhiteSpace(Label))
         {
-            Label = Localizer["Image"];
+            Label = Localizer["image"];
         }
     }
 

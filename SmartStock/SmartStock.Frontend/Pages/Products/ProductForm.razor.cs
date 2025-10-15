@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.Extensions.Localization;
 using SmartStock.Frontend.Repositories;
 using SmartStock.Shared.DTOs;
-using SmartStock.Shared.Entites;
+using SmartStock.Shared.Entities;
 using SmartStock.Shared.Resources;
 using System.Diagnostics.Metrics;
 
@@ -15,10 +15,14 @@ public partial class ProductForm
 {
     private EditContext editContext = null!;
 
-    protected override void OnInitialized()
-    {
-        editContext = new(ProductDTO);
-    }
+    private Category selectedCategory = new();
+    private List<Category>? categories;
+    private string? imageUrl;
+    private string? shapeImageMessage;
+
+    [Inject] private SweetAlertService SweetAlertService { get; set; } = null!;
+    [Inject] private IStringLocalizer<Literals> Localizer { get; set; } = null!;
+    [Inject] private IRepository Repository { get; set; } = null!;
 
     [EditorRequired, Parameter] public ProductDTO ProductDTO { get; set; } = null!;
     [EditorRequired, Parameter] public EventCallback OnValidSubmit { get; set; }
@@ -26,12 +30,10 @@ public partial class ProductForm
 
     public bool FormPostedSuccessfully { get; set; } = false;
 
-    [Inject] private SweetAlertService SweetAlertService { get; set; } = null!;
-    [Inject] private IStringLocalizer<Literals> Localizer { get; set; } = null!;
-    [Inject] private IRepository Repository { get; set; } = null!;
-
-    private List<Category>? categories;
-    private string? imageUrl;
+    protected override void OnInitialized()
+    {
+        editContext = new(ProductDTO);
+    }
 
     protected override async Task OnInitializedAsync()
     {
@@ -46,7 +48,14 @@ public partial class ProductForm
             imageUrl = ProductDTO.Image;
             ProductDTO.Image = null;
         }
+        //shapeImageMessage = ProductDTO.IsImageSquare ? Localizer["ImageIsSquare"] : Localizer["ImageIsRectangular"];
     }
+
+    //private void OnToggledChanged(bool toggled)
+    //{
+    //    ProductDTO.IsImageSquare = toggled;
+    //    shapeImageMessage = ProductDTO.IsImageSquare ? Localizer["ImageIsSquare"] : Localizer["ImageIsRectangular"];
+    //}
 
     private async Task LoadCategoriesAsync()
     {
@@ -92,5 +101,24 @@ public partial class ProductForm
         }
 
         context.PreventNavigation();
+    }
+
+    private async Task<IEnumerable<Category>> SearchCategory(string searchText, CancellationToken cancellationToken)
+    {
+        await Task.Delay(5);
+        if (string.IsNullOrWhiteSpace(searchText))
+        {
+            return categories!;
+        }
+
+        return categories!
+            .Where(x => x.CategoryName.Contains(searchText, StringComparison.InvariantCultureIgnoreCase))
+            .ToList();
+    }
+
+    private void CategoryChanged(Category category)
+    {
+        selectedCategory = category;
+        ProductDTO.CategoryId = category.CategoryId;
     }
 }

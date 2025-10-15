@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SmartStock.Shared.Entites;
+using SmartStock.Shared.Entities;
 using System.Collections.Generic;
 using System.Reflection.Emit;
 

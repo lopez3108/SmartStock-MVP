@@ -1,7 +1,8 @@
 ﻿@page "/products/create"
 
-<h3> @Localizer["create"] @Localizer["product"]</h3>
-
-<ProductForm @ref="productForm" ProductDTO="productDTO" OnValidSubmit="CreateAsync" ReturnAction="Return" />
-
+<MudDialog>
+    <DialogContent>
+        <ProductForm @ref="productForm" ProductDTO="productDTO" OnValidSubmit="CreateAsync" ReturnAction="Return" />
+    </DialogContent>
+</MudDialog>
 

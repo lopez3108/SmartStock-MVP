@@ -3,7 +3,7 @@ using SmartStock.Backend.Data;
 using SmartStock.Backend.Helpers;
 using SmartStock.Backend.Repositories.Interfaces;
 using SmartStock.Shared.DTOs;
-using SmartStock.Shared.Entites;
+using SmartStock.Shared.Entities;
 using SmartStock.Shared.Responses;
 
 namespace SmartStock.Backend.Repositories.Implementations;

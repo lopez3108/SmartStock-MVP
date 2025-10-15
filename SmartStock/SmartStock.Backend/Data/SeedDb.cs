@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SmartStock.Backend.Helpers;
-using SmartStock.Shared.Entites;
+using SmartStock.Shared.Entities;
 using System.Globalization;
 using System.Text;
 
@@ -120,5 +120,4 @@ public class SeedDb
             await _context.SaveChangesAsync();
         }
     }
-       
 }

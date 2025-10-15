@@ -1,4 +1,4 @@
-﻿using SmartStock.Shared.Entites;
+﻿using SmartStock.Shared.Entities;
 using SmartStock.Shared.Resources;
 using System.ComponentModel.DataAnnotations;
 
@@ -31,7 +31,7 @@ public class ProductDTO
     public DateTime? ExpirationDate { get; set; }
 
     [Required]
-    public DateTime CreatedAt { get; set; }
+    public DateTime CreatedAt { get; set; } = DateTime.Now; // 👈 Se inicializa con la fecha actual
 
     [Display(Name = "image", ResourceType = typeof(Literals))]
     public string? Image { get; set; }

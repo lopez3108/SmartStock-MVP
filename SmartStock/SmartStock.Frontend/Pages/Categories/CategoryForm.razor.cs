@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.Extensions.Localization;
-using SmartStock.Shared.Entites;
+using SmartStock.Shared.Entities;
 using SmartStock.Shared.Resources;
 
 namespace SmartStock.Frontend.Pages.Categories;

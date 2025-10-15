@@ -1,7 +1,7 @@
 ﻿using SmartStock.Backend.Repositories.Interfaces;
 using SmartStock.Backend.UnitsOfWork.Interfaces;
 using SmartStock.Shared.DTOs;
-using SmartStock.Shared.Entites;
+using SmartStock.Shared.Entities;
 using SmartStock.Shared.Responses;
 
 namespace SmartStock.Backend.UnitsOfWork.Implementations;

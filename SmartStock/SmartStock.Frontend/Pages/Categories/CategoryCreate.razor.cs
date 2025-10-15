@@ -4,7 +4,7 @@ using Microsoft.Extensions.Localization;
 using MudBlazor;
 using SmartStock.Frontend.Pages.Products;
 using SmartStock.Frontend.Repositories;
-using SmartStock.Shared.Entites;
+using SmartStock.Shared.Entities;
 using SmartStock.Shared.Resources;
 using System.Diagnostics.Metrics;
 
