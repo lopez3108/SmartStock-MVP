@@ -105,7 +105,7 @@ public partial class ProductsIndex
                 {
                     { "Id", id }
                 };
-            dialog = await DialogService.ShowAsync<ProductCreate>($"{Localizer["edit"]} {Localizer["product"]}", parameters, options);
+            dialog = await DialogService.ShowAsync<ProductEdit>($"{Localizer["edit"]} {Localizer["product"]}", parameters, options);
         }
         else
         {

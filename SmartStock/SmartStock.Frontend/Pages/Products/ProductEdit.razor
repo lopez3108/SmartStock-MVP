@@ -1,13 +1,16 @@
 ﻿
 @page "/products/edit/{Id:int}"
 
-<h3>@Localizer["edit"] @Localizer["product"]</h3>
-
 @if (productDTO is null)
 {
-    <Loading />
+    <Loading/>
 }
 else
 {
-    <ProductForm @ref="productForm" ProductDTO="productDTO" OnValidSubmit="EditAsync" ReturnAction="Return" />
+    <MudDialog>
+        <DialogContent>
+            <ProductForm @ref="productForm" ProductDTO="productDTO" OnValidSubmit="EditAsync" ReturnAction="Return" />
+        </DialogContent>
+    </MudDialog>
 }
+

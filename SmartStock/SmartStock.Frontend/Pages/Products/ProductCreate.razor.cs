@@ -9,42 +9,7 @@ using SmartStock.Shared.Resources;
 namespace SmartStock.Frontend.Pages.Products;
 
 public partial class ProductCreate
-{
-    //    private ProductForm? productForm;
-    //    private ProductDTO productDTO = new();
-
-    //    [Inject] private IRepository Repository { get; set; } = null!;
-    //    [Inject] private NavigationManager NavigationManager { get; set; } = null!;
-    //    [Inject] private SweetAlertService SweetAlertService { get; set; } = null!;
-    //    [Inject] private IStringLocalizer<Literals> Localizer { get; set; } = null!;
-
-    //    private async Task CreateAsync()
-    //    {
-    //        var responseHttp = await Repository.PostAsync("/api/products/full", productDTO);
-    //        if (responseHttp.Error)
-    //        {
-    //            var message = await responseHttp.GetErrorMessageAsync();
-    //            await SweetAlertService.FireAsync(Localizer["Error"], Localizer[message!], SweetAlertIcon.Error);
-    //            return;
-    //        }
-
-    //        Return();
-    //        var toast = SweetAlertService.Mixin(new SweetAlertOptions
-    //        {
-    //            Toast = true,
-    //            Position = SweetAlertPosition.BottomEnd,
-    //            ShowConfirmButton = true,
-    //            Timer = 3000
-    //        });
-    //        await toast.FireAsync(icon: SweetAlertIcon.Success, message: Localizer["record_created_ok"]);
-    //    }
-
-    //    private void Return()
-    //    {
-    //        productForm!.FormPostedSuccessfully = true;
-    //        NavigationManager.NavigateTo("/products");
-    //    }
-    //}
+{   
 
     private ProductForm? productForm;
     private ProductDTO productDTO = new();

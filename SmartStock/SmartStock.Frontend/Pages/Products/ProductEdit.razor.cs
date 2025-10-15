@@ -1,4 +1,4 @@
-using CurrieTechnologies.Razor.SweetAlert2;
+﻿using CurrieTechnologies.Razor.SweetAlert2;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
 using SmartStock.Frontend.Repositories;
@@ -49,8 +49,9 @@ public partial class ProductEdit
                 ExpirationDate = product.ExpirationDate,
                 CreatedAt = product.CreatedAt,
                 Image = product.Image,
-                CategoryId = product.CategoryId
+                CategoryId = product.Category!.CategoryId
             };
+
         }
     }
 
