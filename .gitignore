@@ -416,3 +416,5 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+/SmartStock/SmartStock.Shared/Entities/User.cs
+/SmartStock/SmartStock.Shared/Enums/UserType.cs
