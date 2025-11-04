@@ -122,32 +122,39 @@ public class ProductsRepository : GenericRepository<Product>, IProductsRepositor
 
     public async Task<ActionResponse<Product>> UpdateAsync(ProductDTO productDTO)
     {
+        // 1️⃣ Buscar el producto existente por su ID
         var currentProduct = await _context.Products.FindAsync(productDTO.ProductId);
         if (currentProduct == null)
         {
+            // Retorna error si no existe el producto
             return new ActionResponse<Product>
             {
                 WasSuccess = false,
-                Message = "ERR005"
+                Message = "ERR005" // Producto no encontrado
             };
         }
 
+        // 2️⃣ Buscar la categoría asociada al producto
         var category = await _context.Categories.FindAsync(productDTO.CategoryId);
         if (category == null)
         {
+            // Retorna error si no existe la categoría
             return new ActionResponse<Product>
             {
                 WasSuccess = false,
-                Message = "ERR004"
+                Message = "ERR004" // Categoría no encontrada
             };
         }
 
+        // 3️⃣ Guardado de la imagen (esta es la parte que da problemas con Azure)
         if (!string.IsNullOrEmpty(productDTO.Image))
         {
             var imageBase64 = Convert.FromBase64String(productDTO.Image!);
+            // ⚠️ Aquí se intenta subir la imagen a Azure Blob Storage
             currentProduct.Image = await _fileStorage.SaveFileAsync(imageBase64, ".jpg", "products");
         }
 
+        // 4️⃣ Actualizar campos del producto
         currentProduct.Category = category;
         currentProduct.ProductCode = productDTO.ProductCode;
         currentProduct.ProductName = productDTO.ProductName;
@@ -157,9 +164,12 @@ public class ProductsRepository : GenericRepository<Product>, IProductsRepositor
         currentProduct.ExpirationDate = productDTO.ExpirationDate;
         currentProduct.CreatedAt = productDTO.CreatedAt;
 
+        // 5️⃣ Marcar el producto como modificado en el DbContext
         _context.Update(currentProduct);
+
         try
         {
+            // 6️⃣ Guardar cambios en la base de datos
             await _context.SaveChangesAsync();
             return new ActionResponse<Product>
             {
@@ -169,6 +179,7 @@ public class ProductsRepository : GenericRepository<Product>, IProductsRepositor
         }
         catch (DbUpdateException)
         {
+            // Manejo de error específico de EF
             return new ActionResponse<Product>
             {
                 WasSuccess = false,
@@ -177,6 +188,7 @@ public class ProductsRepository : GenericRepository<Product>, IProductsRepositor
         }
         catch (Exception exception)
         {
+            // Manejo de cualquier otro error
             return new ActionResponse<Product>
             {
                 WasSuccess = false,

@@ -38,5 +38,7 @@ public class Product
 
     public int CategoryId { get; set; }
 
-    public string ImageFull => string.IsNullOrEmpty(Image) ? "/images/NoImage.png" : Image;
+    //public string ImageFull => string.IsNullOrEmpty(Image) ? "/images/NoImage.png" : Image;
+
+    public string ImageFull => string.IsNullOrEmpty(Image) ? "/images/NoImage.png" : $"https://localhost:7222{Image}";
 }

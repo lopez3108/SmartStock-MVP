@@ -97,6 +97,15 @@ namespace SmartStock.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Admin.
+        /// </summary>
+        public static string admin {
+            get {
+                return ResourceManager.GetString("admin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All.
         /// </summary>
         public static string all {
@@ -142,6 +151,51 @@ namespace SmartStock.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Company address.
+        /// </summary>
+        public static string company_address {
+            get {
+                return ResourceManager.GetString("company_address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Company email.
+        /// </summary>
+        public static string company_email {
+            get {
+                return ResourceManager.GetString("company_email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Company name.
+        /// </summary>
+        public static string company_name {
+            get {
+                return ResourceManager.GetString("company_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Company NIT.
+        /// </summary>
+        public static string company_nit {
+            get {
+                return ResourceManager.GetString("company_nit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Company phone number.
+        /// </summary>
+        public static string company_phone {
+            get {
+                return ResourceManager.GetString("company_phone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirmation.
         /// </summary>
         public static string confirmation {
@@ -165,6 +219,15 @@ namespace SmartStock.Shared.Resources {
         public static string created_at {
             get {
                 return ResourceManager.GetString("created_at", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Created by.
+        /// </summary>
+        public static string created_by {
+            get {
+                return ResourceManager.GetString("created_by", resourceCulture);
             }
         }
         
@@ -277,6 +340,15 @@ namespace SmartStock.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to First Name.
+        /// </summary>
+        public static string first_name {
+            get {
+                return ResourceManager.GetString("first_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         public static string home {
@@ -291,6 +363,24 @@ namespace SmartStock.Shared.Resources {
         public static string image {
             get {
                 return ResourceManager.GetString("image", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is active.
+        /// </summary>
+        public static string is_active {
+            get {
+                return ResourceManager.GetString("is_active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last Name.
+        /// </summary>
+        public static string last_name {
+            get {
+                return ResourceManager.GetString("last_name", resourceCulture);
             }
         }
         
@@ -318,6 +408,24 @@ namespace SmartStock.Shared.Resources {
         public static string minimum_stock {
             get {
                 return ResourceManager.GetString("minimum_stock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modified at.
+        /// </summary>
+        public static string modified_at {
+            get {
+                return ResourceManager.GetString("modified_at", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modified by.
+        /// </summary>
+        public static string modified_by {
+            get {
+                return ResourceManager.GetString("modified_by", resourceCulture);
             }
         }
         
@@ -570,6 +678,24 @@ namespace SmartStock.Shared.Resources {
         public static string unit_price {
             get {
                 return ResourceManager.GetString("unit_price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User.
+        /// </summary>
+        public static string user {
+            get {
+                return ResourceManager.GetString("user", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User Type.
+        /// </summary>
+        public static string user_type {
+            get {
+                return ResourceManager.GetString("user_type", resourceCulture);
             }
         }
         

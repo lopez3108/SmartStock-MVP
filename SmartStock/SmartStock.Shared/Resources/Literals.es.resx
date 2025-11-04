@@ -271,4 +271,46 @@
   <data name="please_wait" xml:space="preserve">
     <value>Por favor espere...</value>
   </data>
+  <data name="admin" xml:space="preserve">
+    <value>Administrador</value>
+  </data>
+  <data name="user" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="first_name" xml:space="preserve">
+    <value>Nombres</value>
+  </data>
+  <data name="last_name" xml:space="preserve">
+    <value>Apellidos</value>
+  </data>
+  <data name="user_type" xml:space="preserve">
+    <value>Tipo de Usuario</value>
+  </data>
+  <data name="company_name" xml:space="preserve">
+    <value>Nombre de la compañía</value>
+  </data>
+  <data name="company_nit" xml:space="preserve">
+    <value>NIT de la compañía</value>
+  </data>
+  <data name="company_address" xml:space="preserve">
+    <value>Dirección de la compañía</value>
+  </data>
+  <data name="company_phone" xml:space="preserve">
+    <value>Teléfono de la compañía</value>
+  </data>
+  <data name="company_email" xml:space="preserve">
+    <value>Correo electrónico de la compañía</value>
+  </data>
+  <data name="is_active" xml:space="preserve">
+    <value>Está activo</value>
+  </data>
+  <data name="created_by" xml:space="preserve">
+    <value>Creado por</value>
+  </data>
+  <data name="modified_by" xml:space="preserve">
+    <value>Modificado por</value>
+  </data>
+  <data name="modified_at" xml:space="preserve">
+    <value>Fecha de modificación</value>
+  </data>
 </root>
